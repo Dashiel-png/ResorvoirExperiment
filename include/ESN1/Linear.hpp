@@ -20,4 +20,8 @@ class Linear{
     ~Linear();
 
     VectorXd& forward(const VectorXd& in);
+
+    const MatrixXd& getWeight();
+
+    void setWeight(MatrixXd w);
 };
