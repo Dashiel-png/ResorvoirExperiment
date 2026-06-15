@@ -4,7 +4,13 @@
             "name": "Mac",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${workspaceFolder}/include"
+                "${workspaceFolder}/include",
+                "/Users/dashielbalnaves/Qt/6.11.1/macos/include/**",
+                "/Users/dashielbalnaves/Qt/6.11.1/macos/lib/QtCore.framework",
+                ""
+            ],
+            "macFrameworkPath": [
+                 "/Users/dashielbalnaves/Qt/6.11.1/macos/lib"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/clang",
