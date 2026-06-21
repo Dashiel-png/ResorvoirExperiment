@@ -1,3 +1,6 @@
+#ifndef LINEAR
+#define LINEAR
+
 #include <iostream>
 #include <vector>
 #include <random>
@@ -19,9 +22,12 @@ class Linear{
 
     ~Linear();
 
-    VectorXd& forward(const VectorXd& in);
+    VectorXd forward(const VectorXd& in);
 
     const MatrixXd& getWeight();
 
     void setWeight(MatrixXd w);
 };
+
+
+#endif

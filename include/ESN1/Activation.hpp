@@ -1,3 +1,6 @@
+#ifndef ACTIVATION
+#define ACTIVATION
+
 #include <iostream>
 #include <vector>
 #include <random>
@@ -9,10 +12,10 @@ using VectorXd = Eigen::VectorXd;
 
 class Activation{
     public:
-    virtual VectorXd compute(VectorXd);
+    Activation() = default;
+    virtual VectorXd compute(VectorXd) = 0;
+    virtual ~Activation() = default;
 };
 
-class TanH : public Activation{
-    public:
-    VectorXd compute(VectorXd);
-};
+
+#endif

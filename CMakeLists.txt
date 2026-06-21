@@ -1,19 +1,25 @@
 cmake_minimum_required(VERSION 3.15)
-project(rcTest)
+project(rcdisp)
 
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
+set(CMAKE_AUTOUIC ON)
 
-//my implementation-files
+
+#my implementation-files
 set(PROJECT_SOURCES
-    include/ESN1/Acivation-impl.cpp
-    include/ESN1/ESN.cpp
-    include/ESN1/Linear.cpp
-    include/ESN1/LRReadout.cpp
-    include/Metrics/BasicComp.cpp
-    include/qcustomplot/qcustomplot.cpp
+    ${PROJECT_SOURCE_DIR}/include/ESN1/Activation-impl.cpp
+    ${PROJECT_SOURCE_DIR}/include/ESN1/ESN.cpp
+    ${PROJECT_SOURCE_DIR}/include/ESN1/Tanh-impl.cpp
+    ${PROJECT_SOURCE_DIR}/include/ESN1/Linear.cpp
+    ${PROJECT_SOURCE_DIR}/include/ESN1/LRReadout.cpp
+    ${PROJECT_SOURCE_DIR}/include/Metrics/BasicComp.cpp
+    ${PROJECT_SOURCE_DIR}/src/mainwindow.cpp
+    ${PROJECT_SOURCE_DIR}/include/qcustomplot/qcustomplot.cpp
 )
 list(APPEND CMAKE_PREFIX_PATH "/Users/dashielbalnaves/Qt/6.11.1/macos")
 
@@ -21,27 +27,36 @@ list(APPEND CMAKE_PREFIX_PATH "/Users/dashielbalnaves/Qt/6.11.1/macos")
 find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets PrintSupport)
 # Note: Change "Qt6" to "Qt5" above if you are using Qt 5.
 
-//my headers
+#my headers
 
 set(PROJECT_HEADERS
-    include/ESN1/Acivation.hpp
-    include/ESN1/ESN.hpp
-    include/ESN1/Linear.hpp
-    include/ESN1/LRReadout.hpp
-    include/qcustomplot/qcustomplot.hpp
+    ${PROJECT_SOURCE_DIR}/include/ESN1/Activation.hpp
+    ${PROJECT_SOURCE_DIR}/include/ESN1/Tanh.hpp
+    ${PROJECT_SOURCE_DIR}/include/ESN1/ESN.hpp
+    ${PROJECT_SOURCE_DIR}/include/ESN1/Linear.hpp
+    ${PROJECT_SOURCE_DIR}/include/ESN1/LRReadout.hpp
+    ${PROJECT_SOURCE_DIR}/include/qcustomplot/qcustomplot.h
+    ${PROJECT_SOURCE_DIR}/src/mainwindow.h
+    ${PROJECT_SOURCE_DIR}/include/Eigen
 
 )
+
 
 add_executable(main
     src/main.cpp ${PROJECT_SOURCES} ${PROJECT_HEADERS}
 )
-
-# Set the include directories to point to the GUDHI headers
-include_directories(main PRIVATE
+target_include_directories(main PRIVATE
+    ${PROJECT_SOURCE_DIR}/include/Eigen
+    ${PROJECT_SOURCE_DIR}/include/qcustomplot
+    ${PROJECT_SOURCE_DIR}/include/ESN1
     ${PROJECT_SOURCE_DIR}/include
+    ${PROJECT_SOURCE_DIR}/src
 )
 
-target_link_libraries(MyQCustomPlotProject PRIVATE
+
+
+
+target_link_libraries(main PRIVATE
     Qt6::Core
     Qt6::Gui
     Qt6::Widgets

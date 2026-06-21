@@ -14,7 +14,7 @@ Linear::Linear(int inputdim, int outputdim, double distbounds, double biasbound)
     this->bias = VectorXd::NullaryExpr(outputdim, [&]() { return dist(gen); });
 }
 
-VectorXd& Linear::forward(const VectorXd& in){
+VectorXd Linear::forward(const VectorXd& in){
     VectorXd out = this->weights * in + bias;
     return out;
 }

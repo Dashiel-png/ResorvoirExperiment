@@ -3,7 +3,7 @@
 using MatrixXd = Eigen::MatrixXd;
 using VectorXd = Eigen::VectorXd;
 
-ESN::ESN(int dim, Activation& f, double p, VectorXd init): param{p}, f{f}, dim{dim}, state{init} {
+ESN::ESN(int dim, VectorXd init, Activation& f, double p): param{p}, f{f}, dim{dim}, state{init} {
     std::random_device rd;
     std::mt19937 gen(rd());
     std::normal_distribution<double> dist(0.0, 1.0);
@@ -30,7 +30,7 @@ ESN::ESN(int dim, Activation& f, double p, VectorXd init): param{p}, f{f}, dim{d
 
 }
 
-const VectorXd& ESN::call(VectorXd x, VectorXd v){
+const VectorXd ESN::call(VectorXd x, VectorXd v){
     VectorXd x_next = this->weights * x;
     x_next = x_next + v;
     x_next = this->f.compute(x_next); //maybe add a leaky rate later
@@ -42,3 +42,7 @@ VectorXd& ESN::step(VectorXd v){
     return this->state;
 }
 
+
+const MatrixXd& ESN::getWeight(){
+    return this->weights;
+}

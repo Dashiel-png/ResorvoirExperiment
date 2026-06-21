@@ -1,0 +1,5 @@
+/Users/dashielbalnaves/Documents/Machine learning C++/RC experiment/build/Qt_6_11_1_for_macOS-Debug/CMakeFiles/main.dir
+/Users/dashielbalnaves/Documents/Machine learning C++/RC experiment/build/Qt_6_11_1_for_macOS-Debug/CMakeFiles/edit_cache.dir
+/Users/dashielbalnaves/Documents/Machine learning C++/RC experiment/build/Qt_6_11_1_for_macOS-Debug/CMakeFiles/rebuild_cache.dir
+/Users/dashielbalnaves/Documents/Machine learning C++/RC experiment/build/Qt_6_11_1_for_macOS-Debug/CMakeFiles/main_autogen_timestamp_deps.dir
+/Users/dashielbalnaves/Documents/Machine learning C++/RC experiment/build/Qt_6_11_1_for_macOS-Debug/CMakeFiles/main_autogen.dir

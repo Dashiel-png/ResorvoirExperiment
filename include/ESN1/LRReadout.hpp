@@ -1,3 +1,7 @@
+#ifndef LRR
+#define LRR
+
+
 #include <iostream>
 #include <vector>
 #include <random>
@@ -13,3 +17,6 @@ class LRReadout : public Linear{
     LRReadout(int rows, int cols);
     void train(MatrixXd x_train, MatrixXd y_train);
 };
+
+
+#endif
