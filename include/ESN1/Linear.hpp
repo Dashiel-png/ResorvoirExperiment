@@ -20,7 +20,7 @@ class Linear{
     //generate weights based on uniform distribution
     Linear(int inputdim, int outputdim, double distbounds, double biasbound);
 
-    ~Linear();
+    ~Linear() {};
 
     VectorXd forward(const VectorXd& in);
 

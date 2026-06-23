@@ -19,6 +19,7 @@ public:
 private:
     QCustomPlot *customPlot;
     void setupPlot();
+    void setupPlot2(int dim_in, int dim_esn, int washout_time, int sample_time); //plot 
 };
 
 #endif // MAINWINDOW_H

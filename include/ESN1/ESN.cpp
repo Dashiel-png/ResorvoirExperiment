@@ -3,9 +3,8 @@
 using MatrixXd = Eigen::MatrixXd;
 using VectorXd = Eigen::VectorXd;
 
-ESN::ESN(int dim, VectorXd init, Activation& f, double p): param{p}, f{f}, dim{dim}, state{init} {
-    std::random_device rd;
-    std::mt19937 gen(rd());
+ESN::ESN(int dim, VectorXd init, Activation& f, double p, uint32_t seed): param{p}, f{f}, dim{dim}, state{init}, rng_{seed}{
+    std::mt19937 gen(rng_());
     std::normal_distribution<double> dist(0.0, 1.0);
 
     this->weights = MatrixXd::NullaryExpr(dim, dim, [&]() { return dist(gen); } ); //initialised adjacency matrix with normal distribution

@@ -22,9 +22,10 @@ class ESN{
     double sr; //spectral radius
     int dim; //number of nodes in ESN
     VectorXd state;
+    std::mt19937 rng_;
 
     public:
-    ESN(int dim, VectorXd init, Activation& f, double p  = 1.0); //will initialise class weights W_con with density p, and then normalise
+    ESN(int dim, VectorXd init, Activation& f, double p  = 1.0, uint32_t seed = std::random_device{}()); //will initialise class weights W_con with density p, and then normalise
 
     const VectorXd call(VectorXd x, VectorXd v); //using this compute with the current ESN state what would happen given previous time step x and input v to the state of the network
 
